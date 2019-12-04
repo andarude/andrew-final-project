@@ -1,36 +1,23 @@
-<nav class="navbar navbar-expand-lg">
+<nav class="navbar navbar-light bg-white sticky-top navbar-expand-lg">
   <a class="navbar-brand" href="index.html"><img src="../img/queen-logo-old.png" alt="Links to home page" height="67.5px" width="124px"></a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+  <button class="navbar-toggler mt-2" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarNavDropdown">
     <ul class="navbar-nav">
       <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Albums</a>
+        <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Albums</a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <a class="dropdown-item" href="#">Queen</a>
-            <a class="dropdown-item" href="#">Queen II</a>
-            <a class="dropdown-item" href="#">Sheer Heart Attack</a>
-            <a class="dropdown-item" href="#">A Night at the Opera</a>
-            <a class="dropdown-item" href="#">A Day at the Races</a>
-            <a class="dropdown-item" href="#">News of the World</a>
-            <a class="dropdown-item" href="#">Jazz</a>
-            <a class="dropdown-item" href="#">The Game</a>
-            <a class="dropdown-item" href="#">Flash Gordon (Original Soundtrack)</a>
-            <a class="dropdown-item" href="#">Hot Space</a>
-            <a class="dropdown-item" href="#">The Works</a>
-            <a class="dropdown-item" href="#">A Kind of Magic</a>
-            <a class="dropdown-item" href="#">The Miracle</a>
-            <a class="dropdown-item" href="#">Innuendo</a>
-            <a class="dropdown-item" href="#">Made in Heaven</a>
+            {% for entry in data.discography %}
+              <a href="{{ entry.slug }}.html" class="dropdown-item">{{ entry.title }}</a>
+            {% endfor %}
           </div>
       <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Members</a>
+        <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Members</a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <a class="dropdown-item" href="#">John Deacon</a>
-            <a class="dropdown-item" href="#">Brian May</a>
-            <a class="dropdown-item" href="#">Freddy Mercury</a>
-            <a class="dropdown-item" href="#">Roger Taylor</a>
+            {% for entry in data.members %}
+              <a class="dropdown-item" href="{{ entry.slug }}.html">{{ entry.name }}</a>
+            {% endfor %}
           </div>
       </li>
     </ul>

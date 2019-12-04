@@ -1,0 +1,15 @@
+{% extends '_layouts/album.njk' %}
+{% set album = data.discography[5] %}
+
+{% block page_title %}{{ album.title }}{% endblock %}
+
+{% block info %}
+  <img src="../img/{{ album.image }}" alt="{{ album.title }}" class="img-fluid border float-right mr-4">
+{% endblock %}
+
+{% block story %}
+  <h1 id="bigtext">{{ album.title }} ({{ album.year }})</h1>
+  <p>
+    -Source: <a href="{{ album.source }}" target="_blank">Wikipedia</a>
+  </p>
+{% endblock %}

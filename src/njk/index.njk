@@ -7,6 +7,7 @@
 <div class="container">
   <div class="row">
     <div class="col-sm-12">
+      <h2 class="text-center mb-4" id="bigtext"><b>About the band</b></h2>
       <p>Queen are a British rock band formed in London in 1970. Their classic line-up was Freddie Mercury (lead vocals and piano), Brian May (lead guitar and vocals), Roger Taylor (drums and vocals) and John Deacon (bass guitar). Their earliest works were influenced by progressive rock, hard rock and heavy metal, but the band gradually ventured into more conventional and radio-friendly works by incorporating further styles, such as arena rock and pop rock.<br><br>
       Before forming Queen, May and Taylor had played together in the band Smile. Mercury was a fan of Smile and encouraged them to experiment with more elaborate stage and recording techniques. He joined in 1970 and suggested the name "Queen". Deacon was recruited in March 1971, before the band released their eponymous debut album in 1973. Queen first charted in the UK with their second album, Queen II, in 1974. Sheer Heart Attack later that year and A Night at the Opera in 1975 brought them international success. The latter featured "Bohemian Rhapsody", which stayed at number one in the UK for nine weeks and helped popularise the music video format.<br><br>
       The band's 1977 album News of the World contained "We Will Rock You" and "We Are the Champions", which have become anthems at sporting events. By the early 1980s, Queen were one of the biggest stadium rock bands in the world. "Another One Bites the Dust" (1980) became their best-selling single, while their 1981 compilation album Greatest Hits is the best-selling album in the UK and is certified eight times platinum in the US. Their performance at the 1985 Live Aid concert has been ranked among the greatest in rock history by various publications. In August 1986, Mercury gave his last performance with Queen at Knebworth, England. In 1991, he died of bronchopneumonia - a complication of AIDS, and Deacon retired in 1997. Since 2004, May and Taylor have toured under the "Queen +" name with vocalists Paul Rodgers and Adam Lambert.<br><br>
@@ -15,98 +16,43 @@
         <p><em>Source: <a href="https://en.wikipedia.org/wiki/Queen_(band)" target="_blank">Wikipedia.com</a></em></p>
       </div>
     </div>
-
-    <div class="col-sm-12">
-      <h2>Albums</h2>
-      
-      <ul class="list-unstyled">
-        {% for entry in data.discography %}
-          <li class="media">
-            <img src="../img/{{ entry.image }}" alt="{{ entry.title }}" class="mr-3" height="64px" width="64px">
-            <div class="media-body">
-              <h4 class="mt-0 mb-1"><a href="{{ entry.url }}">{{ entry.title }}</a></h4>
-              <p class="d-inline float-right">{{ entry.year }}</p>
-            </div>
-          </li>
-          <hr>
-        {% endfor %}
-      </ul>
+  </div>
+</div>
+    
+<div class="conatiner" id="memberscards">
+  <div class="row mr-5 ml-5">
+    <div class="col-sm-12 text-center">
+      <h2 class="mb-4" id="members"><b>Members</b></h2>
     </div>
+    {% for entry in data.members %}
+    <div class="col-sm-3">
+      <a href="{{ entry.slug }}.html">
+        <div class="card mb-3">
+          <img src="../img/{{ entry.imagebw }}" alt="{{ entry.name }}" class="img-fluid">
+          <div class="card-body">
+            <h3 class="card-text" id="membername">{{ entry.name }}</h3>
+            <p class="float-right"><em>{{ entry.instruments }}</em></p>
+          </div>
+        </div>
+      </a>
+    </div> <!-- closes col-sm-3 -->   
+    {% endfor %}
+  </div>
+</div> <!-- closes container -->
 
+<div class="container">
+  <div class="row">
     <div class="col-sm-12">
-      <h2>Members</h2>
-        
-        <div class="accordion" id="accordionExample" >
-          <div class="card">
-            <div class="card-header" id="headingOne">
-              <h5 class="mb-0">
-                <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                  John Deacon
-                </button>
-              </h5>
-            </div> <!-- Closes card-header -->
-
-            <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
-              <div class="card-body">
-                <img src="../img/john-deacon-bw.jpg" alt="John Deacon" class="img-fluid">
-                </div>
-              </div>
-            </div>
-          </div> <!-- Closes card -->
-
-          <div class="card">
-            <div class="card-header" id="headingTwo">
-              <h5 class="mb-0">
-                <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
-                  Brian May
-                </button>
-              </h5>
-            </div> <!-- Closes card-header -->
-
-            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
-              <div class="card-body">
-                <img src="../img/brian-may-bw.jpg" alt="Brian May" class="img-fluid">
-              </div>
-            </div>
-          </div> <!-- Closes card -->
-
-          <div class="card">
-            <div class="card-header" id="headingThree">
-              <h5 class="mb-0">
-                <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
-                  Freddie Mercury
-                </button>
-              </h5>
-            </div> <!-- Closes card-header -->
-
-            <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
-              <div class="card-body">
-                <img src="../img/freddie-mercury-bw.jpg" alt="Freddie Mercury" class="img-fluid">
-              </div>
-            </div>
-          </div> <!-- Closes card -->
-
-          <div class="card">
-            <div class="card-header" id="headingFour">
-              <h5 class="mb-0">
-                <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="true" aria-controls="collapseFour">
-                  Roger Taylor
-                </button>
-              </h5>
-            </div> <!-- Closes card-header -->
-
-            <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordionExample">
-              <div class="card-body">
-                <img src="../img/roger-taylor-bw.jpg" alt="Roger Taylor" class="img-fluid">
-              </div>
-            </div>
-          </div> <!-- Closes card -->
-
-        </div> <!-- Closes accordion -->
-
-    </div> <!-- Closes column -->
-
-  </div> <!-- Closes row -->
-</div> <!-- Closes container -->
+      <h2 class="text-center" id="bigtext"><b>Albums</b></h2>
+    </div>
+    
+    {% for entry in data.discography %}
+      <div class="col-sm-12 col-md-6 col-lg-6 col-xl-4">
+        <a href="{{ entry.slug }}.html"><img src="../img/{{ entry.image }}" alt="{{ entry.title }}" class="mb-3 border"></a>
+      </div>
+      <br>
+    {% endfor %}
+  </div>
+</div>
 
 {% endblock %}
